@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/23 16:21:52 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/11/29 17:58:48 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ int		main(int ac, char **av)
 	int		is_read;
 	char	buff[BUFF_SIZE + 1];
 	t_bool	end;
+	t_piece	*lst_piece;
 
+	lst_piece = NULL;
 	end = FALSE;
 	if (ac > 2)
 		return (0);
-	else if (ac == 1)
-		fd = 0;
-	else
-		fd = open(av[1], O_RDONLY);
+	fd = (ac == 1) ? 0 : open(av[1], O_RDONLY);
 	while ((is_read = read(fd, buff, BUFF_SIZE)) != 0)
 	{
 		if (is_read == BUFF_SIZE - 1)
@@ -37,6 +36,18 @@ int		main(int ac, char **av)
 			write(1, "error\n", 6);
 			return (1);
 		}
+		lst_piece = ft_build_lst_piece(&lst_piece, buff);
 	}
+	if (lst_piece != NULL)
+		while (lst_piece != NULL)
+		{
+			printf("Piece trouvee\n");
+			printf("Coor || i[0] = %d || j[0] = %d ||\n", lst_piece->i[0], lst_piece->j[0]);
+			printf("Coor || i[1] = %d || j[1] = %d ||\n", lst_piece->i[1], lst_piece->j[1]);
+			printf("Coor || i[2] = %d || j[2] = %d ||\n", lst_piece->i[2], lst_piece->j[2]);
+			printf("Coor || i[3] = %d || j[3] = %d ||\n\n", lst_piece->i[3], lst_piece->j[3]);
+			lst_piece = lst_piece->next;
+		}
+	/*ft_work_on_piece(&lst_piece, end)*/
 	return (ft_valid_end(end));
 }

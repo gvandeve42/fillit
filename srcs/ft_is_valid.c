@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:19:10 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/28 12:06:13 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/11/29 18:01:39 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static int		ft_is_piece(char **table, int coor, int iter, char before)
 		i = coor / 4;
 		j = coor % 4;
 	}
-	//printf("test de piece || i = %d || j = %d || iter = %d ||\n", i, j, iter);
 	if (j < 3 && before != 'r' && iter < 4)
 		if (table[i][j + 1] == '#')
 			iter = (ft_is_piece(table, coor + 1, iter + 1, 'l'));
