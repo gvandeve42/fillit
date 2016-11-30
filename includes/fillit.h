@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:19:28 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/01 00:02:19 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/12/01 00:10:00 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char			**ft_init_map(char **map, size_t size);
 t_bool			ft_drop_piece(char **table, t_piece *piece);
 void			ft_pick_piece(char **table, t_piece *piece);
 t_piece			*ft_move_piece(t_piece *piece, char **map);
-void			ft_retour_ligne(t_piece **elem);
+t_piece			*ft_retour_ligne(t_piece *elem);
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/01 00:02:21 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/12/01 00:17:17 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,21 @@ int		main(int ac, char **av)
 			}*/
 	printf("Test init map\n");
 	map = ft_init_map(map, 6);
-	printf("Test drop piece\n");
 	ft_drop_piece(map, lst_piece);
-	printf("Piece dropped\n");
 	i = 0;
-	printf("Print map\n");
+	printf("Premier affichage\n");
 	while(map && map[i])
 		printf("%s\n", map[i++]);
-	printf("Test pick piece\n");
+	printf("\n");
 	ft_pick_piece(map, lst_piece);
-	lst_piece = ft_move_piece(lst_piece, map);
-	lst_piece = ft_move_piece(lst_piece, map);
-	ft_retour_ligne(&lst_piece);
-	printf("Second drop piece");
+	while((lst_piece = ft_move_piece(lst_piece, map)) != NULL)
+	{
 	ft_drop_piece(map, lst_piece);
-	printf("Piece dropped\n");
 	i = 0;
-	printf("Print map\n");
 	while(map && map[i])
 		printf("%s\n", map[i++]);
+	printf("\n");
+	ft_pick_piece(map, lst_piece);
+	}
 	return (ft_valid_end(end));
 }
