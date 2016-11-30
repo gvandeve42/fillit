@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/30 17:22:25 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/11/30 21:18:58 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int		main(int ac, char **av)
 	char	buff[BUFF_SIZE + 1];
 	t_bool	end;
 	t_piece	*lst_piece;
+	char	**map;
 
+	map = NULL;
 	lst_piece = NULL;
 	end = FALSE;
 	if (ac > 2)
@@ -49,6 +51,8 @@ int		main(int ac, char **av)
 			printf("Char || elem->symb = %c ||\n\n", lst_piece->symbol);
 			lst_piece = lst_piece->next;
 		}
-	//ft_work_on_piece(&lst_piece, end)*/
+	ft_init_map(map, 6);
+	ft_init_map(map, 7);
+	ft_init_map(map, 3);
 	return (ft_valid_end(end));
 }

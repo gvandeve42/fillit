@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:19:28 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/30 18:58:25 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/11/30 21:19:02 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_bool			ft_is_valid_test(char buff[BUFF_SIZE + 1], int is_read);
 int				ft_valid_end(t_bool end);
 t_piece			*ft_build_lst_piece(t_piece **list, char buff[BUFF_SIZE + 1]);
 void			ft_reset_piece(t_piece **elem);
+void			ft_init_map(char **map, size_t size);
 
 #endif
 

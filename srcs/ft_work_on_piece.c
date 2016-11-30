@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 16:14:47 by cchampou          #+#    #+#             */
-/*   Updated: 2016/11/30 19:34:14 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/11/30 21:19:00 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	ft_reset_piece(t_piece **elem)
 			min = (*elem)->i[i];
 		i++;
 	}
-	printf("Min i = %d\n", min);
 	i = 0;
 	while (i < 4)
 		(*elem)->i[i++] -= min;
@@ -44,7 +43,6 @@ void	ft_reset_piece(t_piece **elem)
 		i++;
 	}
 	i = 0;
-	printf("Min j = %d - %d\n", min, i);
 	while (i < 4)
 		(*elem)->j[i++] -= min;
 }
@@ -54,21 +52,35 @@ void	ft_reset_piece(t_piece **elem)
 	elem->
 	}*/
 
- /*void	ft_init_map(char **map, size_t size)
+void	ft_init_map(char **map, size_t size)
 {
-	int		i;
-	int		j;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
 	j = 0;
+	while (map && map[i])
+		free(map[i++]);
+	if (map)
+		free(map);
+	map = (char**)malloc((size + 1) * sizeof(char*));
 	while (i < size)
 	{
+		map[i] = (char*)malloc((size + 1) * sizeof(char));
 		while (j < size)
 		{
 			map[i][j] = '.';
 			j++;
 		}
+		map[i][j] = '\0';
 		j = 0;
 		i++;
 	}
-	}*/
+	map[i] = 0;
+	i = 0;
+	while (map[i])
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
+}
