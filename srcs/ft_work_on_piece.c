@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 16:14:47 by cchampou          #+#    #+#             */
-/*   Updated: 2016/11/30 19:02:06 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/11/30 19:34:14 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ void	ft_reset_piece(t_piece **elem)
 		i++;
 	}
 	printf("Min i = %d\n", min);
-	while (i >= 0)
-		(*elem)->i[i--] -= min;
+	i = 0;
+	while (i < 4)
+		(*elem)->i[i++] -= min;
 	i = 0;
 	min = 3;
 	while (i < 4)
@@ -42,9 +43,10 @@ void	ft_reset_piece(t_piece **elem)
 			min = (*elem)->j[i];
 		i++;
 	}
-	printf("Min j = %d\n", min);
-	while (i >= 0)
-		(*elem)->j[i--] -= min;
+	i = 0;
+	printf("Min j = %d - %d\n", min, i);
+	while (i < 4)
+		(*elem)->j[i++] -= min;
 }
 
 /*void	ft_ballade_du_dimanche_matin(t_piece *elem)
