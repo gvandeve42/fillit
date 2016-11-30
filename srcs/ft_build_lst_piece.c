@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 12:52:56 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/30 16:05:33 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/11/30 18:58:35 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static t_piece		*ft_init_piece(t_piece *piece, char **table, int c)
 		j = 0;
 		i++;
 	}
+	ft_reset_piece(&piece);
 	piece->symbol += c;
 	return (piece);
 }

@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/29 17:58:48 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/11/30 17:22:25 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int		main(int ac, char **av)
 			printf("Coor || i[0] = %d || j[0] = %d ||\n", lst_piece->i[0], lst_piece->j[0]);
 			printf("Coor || i[1] = %d || j[1] = %d ||\n", lst_piece->i[1], lst_piece->j[1]);
 			printf("Coor || i[2] = %d || j[2] = %d ||\n", lst_piece->i[2], lst_piece->j[2]);
-			printf("Coor || i[3] = %d || j[3] = %d ||\n\n", lst_piece->i[3], lst_piece->j[3]);
-			printf("Char || elem->symb = %c ||\n", lst_piece->symbol);
+			printf("Coor || i[3] = %d || j[3] = %d ||\n", lst_piece->i[3], lst_piece->j[3]);
+			printf("Char || elem->symb = %c ||\n\n", lst_piece->symbol);
 			lst_piece = lst_piece->next;
 		}
-	ft_work_on_piece(&lst_piece, end)*/
+	//ft_work_on_piece(&lst_piece, end)*/
 	return (ft_valid_end(end));
 }
