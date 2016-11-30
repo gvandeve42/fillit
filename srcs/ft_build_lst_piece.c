@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 12:52:56 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/29 17:50:31 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/11/30 16:05:33 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static t_piece		*ft_create_elem(t_piece *elem)
 	while (i < 4)
 		elem->j[i++] = 0;
 	elem->next = NULL;
+	elem->symbol = 'A';
 	return (elem);
 }
 
@@ -47,7 +48,7 @@ static t_piece		*ft_add_elem(t_piece **list)
 	return ((tmp_list));
 }
 
-static t_piece		*ft_init_piece(t_piece *piece, char **table)
+static t_piece		*ft_init_piece(t_piece *piece, char **table, int c)
 {
 	int		i;
 	int		j;
@@ -71,6 +72,7 @@ static t_piece		*ft_init_piece(t_piece *piece, char **table)
 		j = 0;
 		i++;
 	}
+	piece->symbol += c;
 	return (piece);
 }
 
@@ -78,12 +80,17 @@ t_piece		*ft_build_lst_piece(t_piece **list, char buff[BUFF_SIZE + 1])
 {
 	char		**table;
 	t_piece		*piece;
+	int		i;
 
+	i = 0;
 	*list = ft_add_elem(list);
 	table = ft_strsplit(buff, '\n');
 	piece = *list;
 	while (piece->next != NULL)
+	{
 		piece = piece->next;
-	piece = ft_init_piece(piece, table);
+		i++;
+	}
+	piece = ft_init_piece(piece, table, i);
 	return (*list);
 }

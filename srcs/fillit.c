@@ -46,8 +46,9 @@ int		main(int ac, char **av)
 			printf("Coor || i[1] = %d || j[1] = %d ||\n", lst_piece->i[1], lst_piece->j[1]);
 			printf("Coor || i[2] = %d || j[2] = %d ||\n", lst_piece->i[2], lst_piece->j[2]);
 			printf("Coor || i[3] = %d || j[3] = %d ||\n\n", lst_piece->i[3], lst_piece->j[3]);
+			printf("Char || elem->symb = %c ||\n", lst_piece->symbol);
 			lst_piece = lst_piece->next;
 		}
-	/*ft_work_on_piece(&lst_piece, end)*/
+	ft_work_on_piece(&lst_piece, end)*/
 	return (ft_valid_end(end));
 }
