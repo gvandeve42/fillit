@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/30 21:18:58 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/11/30 23:16:23 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		main(int ac, char **av)
 	t_bool	end;
 	t_piece	*lst_piece;
 	char	**map;
+	int		i;
 
 	map = NULL;
 	lst_piece = NULL;
@@ -40,7 +41,7 @@ int		main(int ac, char **av)
 		}
 		lst_piece = ft_build_lst_piece(&lst_piece, buff);
 	}
-	if (lst_piece != NULL)
+	/*if (lst_piece != NULL)
 		while (lst_piece != NULL)
 		{
 			printf("Piece trouvee\n");
@@ -50,9 +51,26 @@ int		main(int ac, char **av)
 			printf("Coor || i[3] = %d || j[3] = %d ||\n", lst_piece->i[3], lst_piece->j[3]);
 			printf("Char || elem->symb = %c ||\n\n", lst_piece->symbol);
 			lst_piece = lst_piece->next;
-		}
-	ft_init_map(map, 6);
-	ft_init_map(map, 7);
-	ft_init_map(map, 3);
+			}*/
+	printf("Test init map\n");
+	map = ft_init_map(map, 6);
+	printf("Test drop piece\n");
+	ft_drop_piece(map, lst_piece);
+	printf("Piece dropped\n");
+	i = 0;
+	printf("Print map\n");
+	while(map && map[i])
+		printf("%s\n", map[i++]);
+	printf("Test pick piece\n");
+	ft_pick_piece(map, lst_piece);
+	printf("Test move piece\n");
+	lst_piece = ft_move_piece(lst_piece, map);
+	printf("Second drop piece");
+	ft_drop_piece(map, lst_piece);
+	printf("Piece dropped\n");
+	i = 0;
+	printf("Print map\n");
+	while(map && map[i])
+		printf("%s\n", map[i++]);
 	return (ft_valid_end(end));
 }

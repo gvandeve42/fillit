@@ -6,17 +6,12 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 16:14:47 by cchampou          #+#    #+#             */
-/*   Updated: 2016/11/30 21:19:00 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/11/30 21:53:34 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
-
-/*void	ft_work_on_piece(t_piece **list, t_bool end)
-{
-
-}*/
 
 void	ft_reset_piece(t_piece **elem)
 {
@@ -47,12 +42,7 @@ void	ft_reset_piece(t_piece **elem)
 		(*elem)->j[i++] -= min;
 }
 
-/*void	ft_ballade_du_dimanche_matin(t_piece *elem)
-{
-	elem->
-	}*/
-
-void	ft_init_map(char **map, size_t size)
+char	**ft_init_map(char **map, size_t size)
 {
 	size_t		i;
 	size_t		j;
@@ -83,4 +73,10 @@ void	ft_init_map(char **map, size_t size)
 		printf("%s\n", map[i]);
 		i++;
 	}
+	return (map);
 }
+
+/*void	ft_work_on_piece(t_piece **list, t_bool end)
+{
+
+}*/
