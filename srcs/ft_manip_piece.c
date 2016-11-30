@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 21:26:58 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/01 00:28:57 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 00:37:53 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 
-t_piece		*ft_retour_ligne(t_piece *elem)
+static t_piece		*ft_retour_ligne(t_piece *elem)
 {
 	int	i;
 	int	min;
@@ -33,7 +33,7 @@ t_piece		*ft_retour_ligne(t_piece *elem)
 	return (elem);
 }
 
-t_bool		ft_drop_piece(char **table, t_piece *piece)
+t_bool				ft_drop_piece(char **table, t_piece *piece)
 {
 	int		i;
 
@@ -50,7 +50,7 @@ t_bool		ft_drop_piece(char **table, t_piece *piece)
 	return (TRUE);
 }
 
-void		ft_pick_piece(char **table, t_piece *piece)
+void				ft_pick_piece(char **table, t_piece *piece)
 {
 	int		i;
 
@@ -63,7 +63,7 @@ void		ft_pick_piece(char **table, t_piece *piece)
 	}
 }
 
-t_piece		*ft_move_piece(t_piece *piece, char **map)
+t_piece				*ft_move_piece(t_piece *piece, char **map)
 {
 	int		i;
 
@@ -90,21 +90,3 @@ t_piece		*ft_move_piece(t_piece *piece, char **map)
 	}
 	return (NULL);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

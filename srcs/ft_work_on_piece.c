@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 16:14:47 by cchampou          #+#    #+#             */
-/*   Updated: 2016/12/01 00:02:20 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/12/01 00:36:12 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,7 @@ char	**ft_init_map(char **map, size_t size)
 	{
 		map[i] = (char*)malloc((size + 1) * sizeof(char));
 		while (j < size)
-		{
-			map[i][j] = '.';
-			j++;
-		}
+			map[i][j++] = '.';
 		map[i][j] = '\0';
 		j = 0;
 		i++;
@@ -69,14 +66,6 @@ char	**ft_init_map(char **map, size_t size)
 	map[i] = 0;
 	i = 0;
 	while (map[i])
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
+		printf("%s\n", map[i++]);
 	return (map);
 }
-
-/*void	ft_work_on_piece(t_piece **list, t_bool end)
-{
-
-}*/

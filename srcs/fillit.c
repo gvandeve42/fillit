@@ -6,12 +6,25 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/01 00:17:17 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 00:51:23 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
+
+/*static void		ft_bruteforce(t_piece *lst_piece)
+{
+	char	**map;
+	int		size;
+
+	map = NULL;
+	size = 1;
+	map = ft_init_map(map, size);
+	while (ft_backtrack(lst_piece, map) == FALSE)
+		map = ft_init_map(map, ++size);
+	ft_print_map(map);
+}*/
 
 int		main(int ac, char **av)
 {
