@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:19:28 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/30 16:39:42 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/11/30 18:04:20 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct		s_piece
 # define TRUE		1
 # define FALSE		0
 # define BUFF_SIZE	21
-# define MAP_SIZE	104
 
 void			ft_putchar(char c);
 void			ft_putstr(char *str);

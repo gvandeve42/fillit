@@ -6,18 +6,13 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 16:14:47 by cchampou          #+#    #+#             */
-/*   Updated: 2016/11/30 16:57:13 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/11/30 18:04:32 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_work_on_piece(t_piece **list, t_bool end)
 {
-	char	map[MAP_SIZE][MAP_SIZE];
-	t_piece	*elem;
-
-	ft_init_map(map);
-	elem = *list;
-
+		
 }
 
 void	ft_init_piece(t_piece *elem)
@@ -44,21 +39,21 @@ void	ft_ballade_du_dimanche_matin(t_piece *elem)
 	elem->
 }
 
-void	ft_init_map(char **map)
+void	ft_init_map(char **map, size_t size)
 {
 	int		i;
 	int		j;
 
-	i = 3;
-	j = 3;
-	while (i >= 0)
+	i = 0;
+	j = 0;
+	while (i < size)
 	{
-		while (j >= 0)
+		while (j < size)
 		{
 			map[i][j] = '.';
-			j--;
+			j++;
 		}
-		j = 3;
-		i--;
+		j = 0;
+		i++;
 	}
 }
