@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/30 23:16:23 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 00:02:21 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,9 @@ int		main(int ac, char **av)
 		printf("%s\n", map[i++]);
 	printf("Test pick piece\n");
 	ft_pick_piece(map, lst_piece);
-	printf("Test move piece\n");
 	lst_piece = ft_move_piece(lst_piece, map);
+	lst_piece = ft_move_piece(lst_piece, map);
+	ft_retour_ligne(&lst_piece);
 	printf("Second drop piece");
 	ft_drop_piece(map, lst_piece);
 	printf("Piece dropped\n");

@@ -6,12 +6,31 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 21:26:58 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/30 23:26:24 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 00:02:17 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
+
+
+void	ft_retour_ligne(t_piece **elem)
+{
+	int	i;
+	int	min;
+
+	i = 0;
+	min = 1000;
+	while (i < 4)
+	{
+		if (min > (*elem)->j[i])
+			min = (*elem)->j[i];
+		i++;
+	}
+	i = 0;
+	while (i < 4)
+		(*elem)->j[i++] -= min;
+}	
 
 t_bool		ft_drop_piece(char **table, t_piece *piece)
 {
@@ -46,9 +65,7 @@ void		ft_pick_piece(char **table, t_piece *piece)
 t_piece		*ft_move_piece(t_piece *piece, char **map)
 {
 	int		i;
-	int		min;
 
-	min = 3;
 	i = 0;
 	printf("Test si decallage droite possible\n");
 	while (map[piece->i[i]][piece->j[i] + 1] && i < 4)
@@ -64,7 +81,7 @@ t_piece		*ft_move_piece(t_piece *piece, char **map)
 	i = 0;
 	while (map[piece->i[i] + 1][piece->j[i]] && i < 4)
 		i++;
-	if (i == 3)
+	if (i == 4)
 	{
 		i = 0;
 		while (i < 4)
@@ -73,8 +90,6 @@ t_piece		*ft_move_piece(t_piece *piece, char **map)
 	}
 	return (NULL);
 }
-
-
 
 
 
