@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 21:26:58 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/30 23:22:20 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/11/30 23:26:24 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,11 @@ t_piece		*ft_move_piece(t_piece *piece, char **map)
 	while (map[piece->i[i]][piece->j[i] + 1] && i < 4)
 		i++;
 	printf("i = %d\n", i);
-	if (--i == 3)
+	if (i == 4)
 	{
 		i = 0;
 		while (i < 4)
 			piece->j[i++] += 1;
-		printf("i = %d\n", i);
 		return (piece);
 	}
 	i = 0;
