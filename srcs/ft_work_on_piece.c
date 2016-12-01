@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 16:14:47 by cchampou          #+#    #+#             */
-/*   Updated: 2016/12/01 03:23:17 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 15:18:42 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,14 @@ char	**ft_init_map(char **map, size_t size)
 	printf("size = %zu\n", size);
 	i = 0;
 	j = 0;
-	while (map && map[i] != 0)
+	while (map && map[i]) 
 	{
 		printf("MAP I = %s\n", map[i]);
 		free(map[i++]);
 	}
 	if (map)
 		free(map);
+	i = 0;
 	map = (char**)malloc((size + 1) * sizeof(char*));
 	while (i < size)
 	{
