@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 16:14:47 by cchampou          #+#    #+#             */
-/*   Updated: 2016/12/01 00:36:12 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 02:41:09 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char	**ft_init_map(char **map, size_t size)
 	size_t		i;
 	size_t		j;
 
+	printf("size = %zu\n", size);
 	i = 0;
 	j = 0;
 	while (map && map[i])
@@ -64,8 +65,5 @@ char	**ft_init_map(char **map, size_t size)
 		i++;
 	}
 	map[i] = 0;
-	i = 0;
-	while (map[i])
-		printf("%s\n", map[i++]);
 	return (map);
 }

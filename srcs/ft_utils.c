@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:49:17 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/23 16:33:50 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 01:10:11 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,35 @@ size_t	ft_strlen(char *str)
 		result++;
 	return (result);
 }
+
+void	ft_print_map(char **map)
+{
+	int		i;
+
+	i = 0;
+	while (map && map[i])
+	{
+		ft_putstr(map[i++]);
+		ft_putchar('\n');
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

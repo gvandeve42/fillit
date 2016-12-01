@@ -6,25 +6,44 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/01 00:51:23 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 02:52:57 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-/*static void		ft_bruteforce(t_piece *lst_piece)
+static t_bool	ft_backtrack(t_piece *piece, char **map)
+{
+	if ((piece->next = NULL) && ft_drop_piece(map, piece))
+		return (TRUE);
+	else
+
+	if (ft_drop_piece(map, piece) == FALSE)
+	{
+		ft_pick_piece(map, piece);
+		if (ft_move_piece(piece, map) != NULL)
+			return ft_backtrack(piece, map);
+		else
+			return (FALSE);
+	}
+	 if (piece->next != NULL)
+		return ft_backtrack(piece->next, map);
+	 return (FALSE);
+}
+
+static void		ft_bruteforce(t_piece *lst_piece)
 {
 	char	**map;
 	int		size;
 
 	map = NULL;
-	size = 1;
+	size = 50;
 	map = ft_init_map(map, size);
 	while (ft_backtrack(lst_piece, map) == FALSE)
 		map = ft_init_map(map, ++size);
 	ft_print_map(map);
-}*/
+}
 
 int		main(int ac, char **av)
 {
@@ -33,10 +52,7 @@ int		main(int ac, char **av)
 	char	buff[BUFF_SIZE + 1];
 	t_bool	end;
 	t_piece	*lst_piece;
-	char	**map;
-	int		i;
 
-	map = NULL;
 	lst_piece = NULL;
 	end = FALSE;
 	if (ac > 2)
@@ -54,34 +70,6 @@ int		main(int ac, char **av)
 		}
 		lst_piece = ft_build_lst_piece(&lst_piece, buff);
 	}
-	/*if (lst_piece != NULL)
-		while (lst_piece != NULL)
-		{
-			printf("Piece trouvee\n");
-			printf("Coor || i[0] = %d || j[0] = %d ||\n", lst_piece->i[0], lst_piece->j[0]);
-			printf("Coor || i[1] = %d || j[1] = %d ||\n", lst_piece->i[1], lst_piece->j[1]);
-			printf("Coor || i[2] = %d || j[2] = %d ||\n", lst_piece->i[2], lst_piece->j[2]);
-			printf("Coor || i[3] = %d || j[3] = %d ||\n", lst_piece->i[3], lst_piece->j[3]);
-			printf("Char || elem->symb = %c ||\n\n", lst_piece->symbol);
-			lst_piece = lst_piece->next;
-			}*/
-	printf("Test init map\n");
-	map = ft_init_map(map, 6);
-	ft_drop_piece(map, lst_piece);
-	i = 0;
-	printf("Premier affichage\n");
-	while(map && map[i])
-		printf("%s\n", map[i++]);
-	printf("\n");
-	ft_pick_piece(map, lst_piece);
-	while((lst_piece = ft_move_piece(lst_piece, map)) != NULL)
-	{
-	ft_drop_piece(map, lst_piece);
-	i = 0;
-	while(map && map[i])
-		printf("%s\n", map[i++]);
-	printf("\n");
-	ft_pick_piece(map, lst_piece);
-	}
+	ft_bruteforce(lst_piece);
 	return (ft_valid_end(end));
 }

@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 21:26:58 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/01 00:37:53 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 02:21:17 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ t_bool				ft_drop_piece(char **table, t_piece *piece)
 	i = 0;
 	while (i < 4)
 	{
-		if (table[piece->i[i]][piece->j[i]] &&
+		if (table[piece->i[i]] &&
+			table[piece->i[i]][piece->j[i]] &&
 			table[piece->i[i]][piece->j[i]] == '.')
 			table[piece->i[i]][piece->j[i]] = piece->symbol;
 		else
