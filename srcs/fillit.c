@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/01 02:52:57 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/01 03:40:16 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,20 @@
 
 static t_bool	ft_backtrack(t_piece *piece, char **map)
 {
-	if ((piece->next = NULL) && ft_drop_piece(map, piece))
-		return (TRUE);
+	if (ft_drop_piece(map, piece))
+	{
+		if (piece->next == NULL)
+			return (TRUE);
+		return ft_backtrack(piece->next, map);
+	}
 	else
-
-	if (ft_drop_piece(map, piece) == FALSE)
 	{
 		ft_pick_piece(map, piece);
 		if (ft_move_piece(piece, map) != NULL)
-			return ft_backtrack(piece, map);
+			return (ft_backtrack(piece, map));
 		else
 			return (FALSE);
 	}
-	 if (piece->next != NULL)
-		return ft_backtrack(piece->next, map);
-	 return (FALSE);
 }
 
 static void		ft_bruteforce(t_piece *lst_piece)
@@ -38,7 +37,7 @@ static void		ft_bruteforce(t_piece *lst_piece)
 	int		size;
 
 	map = NULL;
-	size = 50;
+	size = 6;
 	map = ft_init_map(map, size);
 	while (ft_backtrack(lst_piece, map) == FALSE)
 		map = ft_init_map(map, ++size);
