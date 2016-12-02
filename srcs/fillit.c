@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/02 20:41:01 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/12/02 22:44:23 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ t_bool		ft_backtrack(t_piece *piece, char **map)
 	ft_pick_piece(map, piece);
 	if (ft_backtrack(ft_move_piece(piece, map), map) == TRUE)
 		return (TRUE);
-	else
-		return (FALSE);
+	return (FALSE);
 }
 
 void		ft_bruteforce(t_piece *lst_piece)
@@ -68,7 +67,7 @@ int			main(int ac, char **av)
 	lst_piece = NULL;
 	end = FALSE;
 	if ((ac > 2 && write(1, "error\n", 6)) ||
-		(ac == 1 && write(1, "error: usage: feelit [file_path]\n", 33)))
+		(ac == 1 && write(1, "error: usage: ./fillit [file_path]\n", 33)))
 		return (1);
 	fd = open(av[1], O_RDONLY);
 	while ((is_read = read(fd, buff, BUFF_SIZE)) != 0)
