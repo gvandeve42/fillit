@@ -6,13 +6,11 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 11:31:49 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/22 12:10:40 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:28:03 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdlib.h>
-#include <string.h>
 
 static char		*ft_gen(char *s, char c, size_t i)
 {

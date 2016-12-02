@@ -6,12 +6,11 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 16:14:47 by cchampou          #+#    #+#             */
-/*   Updated: 2016/12/02 19:34:36 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:28:12 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 void	ft_reset_piece(t_piece **elem)
 {

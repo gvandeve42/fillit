@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/02 20:08:39 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:27:16 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,10 @@ int				main(int ac, char **av)
 
 	lst_piece = NULL;
 	end = FALSE;
-	if (ac > 2)
-		return (0);
-	fd = (ac == 1) ? 0 : open(av[1], O_RDONLY);
+	if ((ac > 2 && write(1, "error\n", 6)) ||
+		(ac == 1 && write(1, "error: usage: feelit [file_path]\n", 33)))
+		return (1);
+	fd = open(av[1], O_RDONLY);
 	while ((is_read = read(fd, buff, BUFF_SIZE)) != 0)
 	{
 		if (is_read == BUFF_SIZE - 1)
