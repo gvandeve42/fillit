@@ -6,13 +6,13 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/02 20:27:16 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:37:01 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static t_bool	ft_backtrack(t_piece *piece, char **map)
+t_bool	ft_backtrack(t_piece *piece, char **map)
 {
 	if (piece == NULL)
 		return (FALSE);
@@ -32,7 +32,7 @@ static t_bool	ft_backtrack(t_piece *piece, char **map)
 		return (FALSE);
 }
 
-static void		ft_bruteforce(t_piece *lst_piece)
+void		ft_bruteforce(t_piece *lst_piece)
 {
 	char	**map;
 	int		size;
@@ -83,6 +83,5 @@ int				main(int ac, char **av)
 		}
 		lst_piece = ft_build_lst_piece(&lst_piece, buff);
 	}
-	ft_bruteforce(lst_piece);
-	return (ft_valid_end(end));
+	return (ft_valid_end(end, lst_piece));
 }

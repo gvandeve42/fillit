@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:19:10 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/29 18:01:39 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:34:28 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,13 @@ static t_bool	ft_is_valid(char buff[BUFF_SIZE + 1])
 		return (TRUE);
 }
 
-int				ft_valid_end(t_bool end)
+int				ft_valid_end(t_bool end, t_piece *lst_piece)
 {
 	if (end == TRUE)
+	{
+		ft_bruteforce(lst_piece);
 		return (0);
+	}
 	else
 	{
 		write(1, "error\n", 6);
