@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 16:14:47 by cchampou          #+#    #+#             */
-/*   Updated: 2016/12/01 15:18:42 by cchampou         ###   ########.fr       */
+/*   Updated: 2016/12/02 19:34:36 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_reset_piece(t_piece **elem)
 	int		min;
 
 	i = 0;
-	min = 3;
+	min = 1000;
 	while (i < 4)
 	{
 		if (min > (*elem)->i[i])
@@ -30,7 +30,7 @@ void	ft_reset_piece(t_piece **elem)
 	while (i < 4)
 		(*elem)->i[i++] -= min;
 	i = 0;
-	min = 3;
+	min = 1000;
 	while (i < 4)
 	{
 		if (min > (*elem)->j[i])
@@ -47,12 +47,10 @@ char	**ft_init_map(char **map, size_t size)
 	size_t		i;
 	size_t		j;
 
-	printf("size = %zu\n", size);
 	i = 0;
 	j = 0;
-	while (map && map[i]) 
+	while (map && map[i])
 	{
-		printf("MAP I = %s\n", map[i]);
 		free(map[i++]);
 	}
 	if (map)

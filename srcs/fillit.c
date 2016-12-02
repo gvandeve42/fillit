@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/02 16:13:05 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:01:10 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,46 @@
 
 static t_bool	ft_backtrack(t_piece *piece, char **map)
 {
-	printf("Start recur\n");
-	if ((piece->symbol == 'A') &&
-		!ft_drop_piece(map, piece) &&
-		ft_pick_piece(map, piece) &&
-		(ft_move_piece(piece, map) == NULL))
+	if (piece == NULL)
 		return (FALSE);
-	printf("Condition d'arret passe\n");
+	if (piece->next == NULL &&
+		ft_drop_piece(map, piece))
+		return (TRUE);
+	if (ft_drop_piece(map, piece))
+	{
+		ft_reset_piece(&(piece->next));
+		if (ft_backtrack(piece->next, map) == TRUE)
+			return (TRUE);
+	}
 	ft_pick_piece(map, piece);
-	if (!ft_drop_piece(map, piece))
-	{
-		printf("Pas possible de poser la piece %c\n", piece->symbol);
-		ft_pick_piece(map, piece);
-		ft_move_piece(piece, map);
-		printf("On deplace la piece%c\n", piece->symbol);
-		ft_backtrack(piece, map);
-	}
-	else if (piece->next != NULL)
-	{
-		printf("Piece posee, on enchaine a la suivante\n");
-		ft_backtrack(piece->next, map);
-	}
-	return (TRUE);
+	if (ft_backtrack(ft_move_piece(piece, map), map) == TRUE)
+		return (TRUE);
+	else
+		return (FALSE);
 }
 
 static void		ft_bruteforce(t_piece *lst_piece)
 {
 	char	**map;
 	int		size;
+	t_piece	*tmp_piece;
 
 	map = NULL;
-	size = 5;
+	size = 2;
 	map = ft_init_map(map, size);
-	while (ft_backtrack(lst_piece, map) == FALSE)
-		map = ft_init_map(map, ++size);
+	tmp_piece = lst_piece;
+	while (ft_backtrack(tmp_piece, map) == FALSE)
+	{
+		tmp_piece = lst_piece;
+		while (tmp_piece != NULL)
+		{
+			ft_reset_piece(&tmp_piece);
+			tmp_piece = tmp_piece->next;
+		}
+		tmp_piece = lst_piece;
+		size++;
+		map = ft_init_map(map, size);
+	}
 	ft_print_map(map);
 }
 
