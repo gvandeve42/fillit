@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/01 04:00:06 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/02 16:13:05 by gvandeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,28 @@
 
 static t_bool	ft_backtrack(t_piece *piece, char **map)
 {
-	if (ft_drop_piece(map, piece))
-		if (piece->next == NULL || ft_backtrack(piece->next, map))
-			return (TRUE);
+	printf("Start recur\n");
+	if ((piece->symbol == 'A') &&
+		!ft_drop_piece(map, piece) &&
+		ft_pick_piece(map, piece) &&
+		(ft_move_piece(piece, map) == NULL))
+		return (FALSE);
+	printf("Condition d'arret passe\n");
 	ft_pick_piece(map, piece);
-	if (ft_move_piece(piece, map) != NULL)
-		if (ft_backtrack(piece, map))
-			return (TRUE);
-	return (FALSE);
+	if (!ft_drop_piece(map, piece))
+	{
+		printf("Pas possible de poser la piece %c\n", piece->symbol);
+		ft_pick_piece(map, piece);
+		ft_move_piece(piece, map);
+		printf("On deplace la piece%c\n", piece->symbol);
+		ft_backtrack(piece, map);
+	}
+	else if (piece->next != NULL)
+	{
+		printf("Piece posee, on enchaine a la suivante\n");
+		ft_backtrack(piece->next, map);
+	}
+	return (TRUE);
 }
 
 static void		ft_bruteforce(t_piece *lst_piece)
@@ -31,7 +45,7 @@ static void		ft_bruteforce(t_piece *lst_piece)
 	int		size;
 
 	map = NULL;
-	size = 6;
+	size = 5;
 	map = ft_init_map(map, size);
 	while (ft_backtrack(lst_piece, map) == FALSE)
 		map = ft_init_map(map, ++size);
