@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 12:52:56 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/11/30 18:58:35 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:09:33 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,12 @@ static t_piece		*ft_init_piece(t_piece *piece, char **table, int c)
 	return (piece);
 }
 
-t_piece		*ft_build_lst_piece(t_piece **list, char buff[BUFF_SIZE + 1])
+t_piece				*ft_build_lst_piece(t_piece **list,
+		char buff[BUFF_SIZE + 1])
 {
 	char		**table;
 	t_piece		*piece;
-	int		i;
+	int			i;
 
 	i = 0;
 	*list = ft_add_elem(list);

@@ -6,13 +6,11 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 21:26:58 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/02 19:46:17 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:11:43 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
-
 
 static t_piece		*ft_retour_ligne(t_piece *elem)
 {
@@ -72,8 +70,7 @@ t_piece				*ft_move_piece(t_piece *piece, char **map)
 	int		i;
 
 	i = 0;
-	while (map[i] &&
-		   map[piece->i[i]][piece->j[i] + 1] && i < 4)
+	while (map[i] && map[piece->i[i]][piece->j[i] + 1] && i < 4)
 		i++;
 	if (i == 4)
 	{
@@ -83,8 +80,7 @@ t_piece				*ft_move_piece(t_piece *piece, char **map)
 		return (piece);
 	}
 	i = 0;
-	while (map[i] &&
-		   map[piece->i[i] + 1] && i < 4)
+	while (map[i] && map[piece->i[i] + 1] && i < 4)
 		i++;
 	if (i == 4)
 	{

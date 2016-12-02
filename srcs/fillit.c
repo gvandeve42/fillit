@@ -6,12 +6,11 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/02 20:01:10 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:08:39 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 static t_bool	ft_backtrack(t_piece *piece, char **map)
 {
@@ -58,7 +57,7 @@ static void		ft_bruteforce(t_piece *lst_piece)
 	ft_print_map(map);
 }
 
-int		main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	int		fd;
 	int		is_read;
