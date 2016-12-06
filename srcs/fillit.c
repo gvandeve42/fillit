@@ -6,7 +6,7 @@
 /*   By: gvandeve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 11:16:40 by gvandeve          #+#    #+#             */
-/*   Updated: 2016/12/04 14:37:01 by gvandeve         ###   ########.fr       */
+/*   Updated: 2016/12/06 15:46:32 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,13 @@ void		ft_bruteforce(t_piece *lst_piece)
 {
 	char	**map;
 	int		size;
-	t_piece	*tmp_piece;
 
 	map = NULL;
 	size = 2;
 	map = ft_init_map(map, size);
-	tmp_piece = lst_piece;
-	while (ft_backtrack(tmp_piece, map) == FALSE)
+	while (ft_backtrack(lst_piece, map) == FALSE)
 	{
-		tmp_piece = lst_piece;
-		while (tmp_piece != NULL)
-		{
-			ft_reset_piece(&tmp_piece);
-			tmp_piece = tmp_piece->next;
-		}
-		tmp_piece = lst_piece;
+		ft_reset_piece(&lst_piece);
 		size++;
 		map = ft_init_map(map, size);
 	}
@@ -66,8 +58,7 @@ int			main(int ac, char **av)
 
 	lst_piece = NULL;
 	end = FALSE;
-	if ((ac > 2 && write(1, "error\n", 6)) ||
-		(ac == 1 && write(1, "error: usage: ./fillit [file_path]\n", 35)))
+	if (ac != 2 && write(1, "usage: ./fillit [file_path]\n", 28))
 		return (1);
 	fd = open(av[1], O_RDONLY);
 	while ((is_read = read(fd, buff, BUFF_SIZE)) != 0)
