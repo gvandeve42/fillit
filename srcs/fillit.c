@@ -31,13 +31,13 @@ t_bool		ft_backtrack(t_piece *piece, char **map)
 	return (FALSE);
 }
 
-void		ft_bruteforce(t_piece *lst_piece)
+void		ft_bruteforce(t_piece *lst_piece, int nb_piece)
 {
 	char	**map;
 	int		size;
 
 	map = NULL;
-	size = 2;
+	size = ft_isqrt((nb_piece * 4));
 	map = ft_init_map(map, size);
 	while (ft_backtrack(lst_piece, map) == FALSE)
 	{
@@ -52,10 +52,12 @@ int			main(int ac, char **av)
 {
 	int		fd;
 	int		is_read;
+        int		nb_piece;
 	char	buff[BUFF_SIZE + 1];
 	t_bool	end;
 	t_piece	*lst_piece;
 
+        nb_piece = 0;
 	lst_piece = NULL;
 	end = FALSE;
 	if (ac != 2 && write(1, "usage: ./fillit [file_path]\n", 28))
@@ -63,6 +65,7 @@ int			main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	while ((is_read = read(fd, buff, BUFF_SIZE)) != 0)
 	{
+          nb_piece++;
 		if (is_read == BUFF_SIZE - 1)
 			end = TRUE;
 		buff[is_read] = '\0';
@@ -73,5 +76,5 @@ int			main(int ac, char **av)
 		}
 		lst_piece = ft_build_lst_piece(&lst_piece, buff);
 	}
-	return (ft_valid_end(end, lst_piece));
+	return (ft_valid_end(end, lst_piece, nb_piece));
 }

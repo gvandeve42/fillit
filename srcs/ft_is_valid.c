@@ -80,11 +80,11 @@ static t_bool	ft_is_valid(char buff[BUFF_SIZE + 1])
 		return (TRUE);
 }
 
-int				ft_valid_end(t_bool end, t_piece *lst_piece)
+int				ft_valid_end(t_bool end, t_piece *lst_piece, int nb_piece)
 {
 	if (end == TRUE)
 	{
-		ft_bruteforce(lst_piece);
+          ft_bruteforce(lst_piece, nb_piece);
 		return (0);
 	}
 	else

@@ -44,3 +44,13 @@ void	ft_print_map(char **map)
 		ft_putchar('\n');
 	}
 }
+
+int				ft_isqrt(int x)
+{
+  int i;
+
+  i = 0;
+  while ((i * i) < x)
+    i++;
+  return (i);
+}
